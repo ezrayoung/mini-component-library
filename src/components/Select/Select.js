@@ -7,18 +7,14 @@ import { getDisplayedValue } from './Select.helpers';
 import { ChevronDown } from 'react-feather';
 
 const Select = ({ label, value, onChange, children, disabled }) => {
-  const selectRef = useRef(null);
   const displayedValue = getDisplayedValue(value, children);
-  const handleClick = useCallback(() => {
-    selectRef.current.click();
-  }, []);
 
   return (
     <Wrapper>
-      <NativeSelect disabled={disabled} ref={selectRef} value={value} onChange={onChange}>
+      <NativeSelect disabled={disabled} value={value} onChange={onChange}>
         {children}
       </NativeSelect>
-      <PresentationalBit aria-hidden onClick={handleClick}>
+      <PresentationalBit aria-hidden>
         {displayedValue}
         <ChevronDown />
       </PresentationalBit>
