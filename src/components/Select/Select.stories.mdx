@@ -12,6 +12,7 @@ export const ManagedSelect = () => {
       label="Sort"
       value={value}
       onChange={(ev) => setValue(ev.target.value)}
+      disabled={false}
     >
       <option value="newest">Newest Releases</option>
       <option value="price">Price</option>
